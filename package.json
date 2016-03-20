@@ -12,6 +12,7 @@
     "build:umd:prod": "webpack src/index.js dist/redux-saga.min.js --config webpack.config.prod.js",
     "build:umd": "rimraf dist && npm run build:umd:dev && npm run build:umd:prod",
     "prepublish": "npm run check && npm run compile && npm run build:umd",
+    "postinstall": "postinstall-build lib 'npm run compile'",
     "counter": "node examples/counter/server.js",
     "cancellable-counter": "node examples/cancellable-counter/server.js",
     "test-counter": "babel-node examples/counter/test/sagas.js | tap-spec",
@@ -43,7 +44,9 @@
     "url": "https://github.com/yelouafi/redux-saga/issues"
   },
   "homepage": "https://github.com/yelouafi/redux-saga#readme",
-  "dependencies": {},
+  "dependencies": {
+    "postinstall-build": "^0.2.1"
+  },
   "devDependencies": {
     "babel-cli": "^6.1.18",
     "babel-core": "6.4.0",
